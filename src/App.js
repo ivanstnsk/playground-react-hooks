@@ -1,25 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import UseState from './screens/UseState';
+import Home from './screens/Home';
+
+const styles = {
+  wrapper: {
+    display: 'flex',
+    flex: 1,
+    flexDirection: 'row',
+    padding: 0,
+  },
+  menu: {
+    display: 'flex',
+    flex: 1,
+    flexDirection: 'column',
+    maxWidth: 200,
+    background: 'rgba(0,0,0,0.1)',
+    padding: 20,
+    boxSizing: 'border-box',
+  },
+  link: {
+
+  }
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Router>
+    <div style={styles.wrapper}>
+      <div style={styles.menu}>
+        <Link to="/useState">useState</Link>
+      </div>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/useState" component={UseState} />
     </div>
+    </Router>
   );
 }
 
